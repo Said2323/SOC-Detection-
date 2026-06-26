@@ -27,3 +27,10 @@ Welcome to my repository! Here I store detection rules and analytical use-cases 
 * **File:** `network_sweeping_detection.yml`
 * **Goal:** Detects network sweeping (discovery) activity targeting multiple internal hosts.
 * **Logic:** Triggers when a single source IP (`src_ip`) generates connection rejections against more than 50 unique destination IPs (`dest_ip`) within a 1-minute window.
+
+##  Web Detections
+
+### 1. Web SQL Injection Detection (Sigma Rule)
+* **File:** `web_sqli_detection.yml`
+* **Goal:** ??? (Какая цель у этого правила, что оно пытается поймать?)
+* **Logic:** ??? (Опиши логику: в каких логах, какое поле проверяем, какие ключевые слова ищем и почему тут не нужна статистика по количеству запросов).
