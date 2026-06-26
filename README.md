@@ -15,3 +15,15 @@ Welcome to my repository! Here I store detection rules and analytical use-cases 
 * **File:** `linux_ssh_bruteforce.yml`
 * **Goal:** Detects automated SSH brute force attacks against Linux hosts.
 * **Logic:** Triggers when more than 20 authentication failure events (`Failed password`) occur for a specific user account within a 5-minute window.
+
+##  Network Detections
+
+### 1. Network Port Scanning Detection (Sigma Rule)
+* **File:** `network_port_scan.yml`
+* **Goal:** Detects aggressive network port scanning behavior from a single source IP.
+* **Logic:** Triggers when a single source IP (`src_ip`) generates connection rejections (`action: 'reject'`) across more than 100 unique destination ports (`dest_port`) within a 1-minute window.
+
+### 2. Network Sweeping Detection (Sigma Rule)
+* **File:** `network_sweeping_detection.yml`
+* **Goal:** Detects network sweeping (discovery) activity targeting multiple internal hosts.
+* **Logic:** Triggers when a single source IP (`src_ip`) generates connection rejections against more than 50 unique destination IPs (`dest_ip`) within a 1-minute window.
