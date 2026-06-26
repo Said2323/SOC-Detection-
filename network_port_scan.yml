@@ -1,0 +1,18 @@
+title: Network Port Scanning Detection
+id: 6a2c3b4d-e5f6-7a8b-9c0d-1e2f3a4b5c6d
+status: experimental
+description: Detects aggressive network port scanning behavior from a single source IP based on firewall reject logs.
+author: Said2323
+date: 2026/06/26
+logsource:
+    product: firewall
+    service: netflow
+detection:
+    selection:
+        action: 'reject'
+    timeframe: 1m
+    condition: selection | count(dest_port) > 100 by src_ip
+falsepositives:
+    - Misconfigured internal vulnerability scanners
+    - Aggressive network management tools
+level: medium
