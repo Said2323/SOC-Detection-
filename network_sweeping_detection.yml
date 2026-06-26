@@ -1,0 +1,18 @@
+title: Network Sweeping Detection
+id: 7b3d4e5f-a1b2-3c4d-5e6f-7a8b9c0d1e2f
+status: experimental
+description: Detects network sweeping activity (ping sweeps or single-port sweeps) from a single host targeting multiple destination IPs.
+author: Said2323
+date: 2026/06/26
+logsource:
+    product: firewall
+    service: netflow
+detection:
+    selection:
+        action: 'reject'
+    timeframe: 1m
+    condition: selection | count(dest_ip) > 50 by src_ip
+falsepositives:
+    - Internal network inventory tools
+    - Vulnerability scanners (authorized)
+level: medium
