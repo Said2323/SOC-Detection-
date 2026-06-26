@@ -1,4 +1,4 @@
-# SOC & Detection Engineering Projects
+# SOC Detection Engineering Projects
 
 Welcome to my repository! Here I store detection rules and analytical use-cases developed for SIEM systems during my preparation for the SOC Analyst L1 role.
 
