@@ -1,0 +1,21 @@
+title: Targeted Windows Brute Force Detection
+id: 104ab03e-1122-4bb3-9366-a36f5617a765
+status: experimental
+description: Detects a high number of failed login attempts (Event ID 4625) against a single account within a short period, typical for brute force attacks.
+author: Said2323
+date: 2026/06/26
+logsource:
+    product: windows
+    service: security
+detection:
+    selection:
+        EventID: 4625
+        LogonType: 
+            - 3
+            - 10
+    timeframe: 5m
+    condition: selection | count(TargetUserName) > 20
+falsepositives:
+    - User forgot password
+    - Automated service account with expired password
+level: high
