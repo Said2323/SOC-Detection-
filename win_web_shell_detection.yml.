@@ -1,0 +1,20 @@
+title: Suspicious Process Spawned by Web Server
+id: 9d5e3a2b-c1f2-4b3a-a4b5-6c7d8e9f0a1b
+status: experimental
+description: Detects suspicious command line shells spawned by a web server process, which is a classic indicator of web shell execution.
+author: Said2323
+date: 2026/06/26
+logsource:
+    product: windows
+    service: sysmon
+detection:
+    selection:
+        ParentImage|endswith:
+            - '\w3wp.exe'
+            - '\nginx.exe'
+            - '\httpd.exe'
+        Image|endswith:
+            - '\cmd.exe'
+            - '\powershell.exe'
+    condition: selection
+level: critical
