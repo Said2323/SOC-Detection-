@@ -32,5 +32,5 @@ Welcome to my repository! Here I store detection rules and analytical use-cases 
 
 ### 1. Web SQL Injection Detection (Sigma Rule)
 * **File:** `web_sqli_detection.yml`
-* **Goal:** ??? (Какая цель у этого правила, что оно пытается поймать?)
-* **Logic:** ??? (Опиши логику: в каких логах, какое поле проверяем, какие ключевые слова ищем и почему тут не нужна статистика по количеству запросов).
+* **Goal:** Detects an SQLi attempt from a malicious IP
+* **Logic:** Triggers instantly when a single web request to Nginx access log contains SQL keywords ('UNION' and 'SELECT') inside the URL string.»
