@@ -1,0 +1,18 @@
+title: SSH Brute Force Detection
+id: 550e8400-e29b-41d4-a716-446655440000
+status: experimental
+description: Detects SSH brute force attacks against Linux systems.
+author: Said2323
+date: 2026/06/26
+logsource:
+    product: linux
+    service: auth
+detection:
+    selection:
+        keywords:
+          - 'Failed password'
+    timeframe: 5m
+    condition: selection | count(user) > 20 
+falsepositives:
+    - Automated admin scripts
+level: high
